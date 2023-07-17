@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-int is_prime[1000001];
+int is_prime[87000008];
+vector<int> primes;
 void saive();
 
 int main() { 
@@ -10,12 +11,8 @@ int main() {
  
  while(t--){
   cin>>n;
-  cout<<is_prime[n]<<endl;
-  if(is_prime[n]){
-    cout<<"yes"<<endl;
-  }else{
-    cout<<"no"<<endl;
-  }
+  cout<<primes[n-1]<<endl;
+
  } 
   
  return 0;
@@ -23,7 +20,7 @@ int main() {
 
 
 void saive(){
-  int maxN = 1000000;
+  int maxN = 87000008;
   for(int i = 1; i <= maxN; i++) is_prime[i] = 1;
   is_prime[0] = is_prime[1] = 0;
 
@@ -34,4 +31,6 @@ void saive(){
       }
     }
   }
+  
+  for(int i = 2; i <= maxN; i++) if(is_prime[i]) primes.push_back(i);
 }
